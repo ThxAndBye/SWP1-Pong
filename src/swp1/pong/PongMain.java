@@ -25,6 +25,7 @@ public class PongMain {
         
         Thread graficsThread = new Thread(new GraficsThread());
 	graficsThread.run();
+        frame.setLocationRelativeTo(null);
         frame.setResizable(false);
     }
 
