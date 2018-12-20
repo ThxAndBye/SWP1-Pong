@@ -29,7 +29,7 @@ class PongPanel extends JPanel {
     public PongPanel() {
         
         setBackground(Color.BLACK);
-        playerOneHeight = 100;
+        playerOneHeight = pongMain.getWindowHeight()/2;
         playerTwoHeight = playerOneHeight;
     }
 
