@@ -23,13 +23,8 @@ public class PongMain {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setVisible(true);
-<<<<<<< HEAD
         
 
-=======
- 
-        frame.setResizable(false);
->>>>>>> 63e6ecd35f64f5a15606a71969ffb6a277b47288
     }
 
     public int getWindowWidth() {
