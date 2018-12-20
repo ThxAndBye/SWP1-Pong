@@ -8,10 +8,14 @@ package swp1.pong;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
-import java.awt.Toolkit;
+import java.io.IOException;
+import java.io.InputStream;
 import javax.swing.JPanel;
 
 /**
@@ -24,6 +28,9 @@ class PongPanel extends JPanel {
 
     int playerOneHeight;
     int playerTwoHeight;
+    int scorePlayerOne = 0;
+    int scorePlayerTwo = 0;
+    Font bitFont;
 
     int paddleSize = 32;
     PongMain pongMain = new PongMain();
@@ -33,6 +40,14 @@ class PongPanel extends JPanel {
         setBackground(Color.BLACK);
         playerOneHeight = pongMain.getWindowHeight() / 2;
         playerTwoHeight = playerOneHeight;
+
+        try {
+            InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream("8bit16.ttf");
+            bitFont = Font.createFont(Font.TRUETYPE_FONT, stream).deriveFont(60f);
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
+
     }
 
     @Override
@@ -72,9 +87,20 @@ class PongPanel extends JPanel {
         g2.setStroke(dashed);
         g2.drawLine(middle, 25, middle, height - 25);
 
-        //draw the ball
-        g2.setColor(Color.red);
+        //draw score
         g2.setStroke(new BasicStroke(10));
+        FontMetrics metrics = g2.getFontMetrics(bitFont);
+        g2.setFont(bitFont);      
+   
+        int xOne = ((width/2 - metrics.stringWidth(String.valueOf(scorePlayerOne)))/ 2);
+        int xTwo = width/2 + ((width/2 - metrics.stringWidth(String.valueOf(scorePlayerTwo)))/ 2);
+
+        g2.drawString(String.valueOf(scorePlayerOne),xOne, (height / 4));
+        g2.drawString(String.valueOf(scorePlayerTwo),xTwo, (height / 4));
+
+
+        //draw the ball    
+        g2.setColor(Color.red);
         g2.drawRect(bp.getX(), bp.getY(), 5, 5);
 
     }
@@ -101,5 +127,15 @@ class PongPanel extends JPanel {
             this.playerTwoHeight += playerTwoHeight;
         }
     }
+
+    public void setScorePlayerOne(int scorePlayerOne) {
+        this.scorePlayerOne = scorePlayerOne;
+    }
+
+    public void setScorePlayerTwo(int scorePlayerTwo) {
+        this.scorePlayerTwo = scorePlayerTwo;
+    }
+    
+    
 
 }
