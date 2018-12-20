@@ -81,9 +81,9 @@ class playerStatus {
         if (movingDown && movingUp) {
             return 0;
         } else if (movingUp) {
-            return 1;
+            return -10;
         } else if (movingDown) {
-            return -1;
+            return 10;
         } else {
             return 0;
         }

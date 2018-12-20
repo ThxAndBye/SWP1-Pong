@@ -23,9 +23,8 @@ public class PongMain {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setVisible(true);
-        Thread graficsThread = new Thread(new GraficsThread());
-        graficsThread.run();
-
+ 
+        frame.setResizable(false);
     }
 
     public int getWindowWidth() {
