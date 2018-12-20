@@ -5,15 +5,11 @@
  */
 package swp1.pong;
 
-/**
- *
- * @author thxandbye
- */
+
 public class PongMain {
 
-    /**
-     * @param args the command line arguments
-     */
+   
+    
     public static void main(String[] args) {
         PongFrame frame = new PongFrame();
         frame.setVisible(true);

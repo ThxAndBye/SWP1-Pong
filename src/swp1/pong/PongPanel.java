@@ -24,8 +24,10 @@ class PongPanel extends JPanel {
     int playerTwoHeight;
 
     int paddleSize = 32;
+    PongFrame frame;
 
     public PongPanel() {
+        
         setBackground(Color.BLACK);
         playerOneHeight = 100;
         playerTwoHeight = playerOneHeight;
@@ -36,8 +38,9 @@ class PongPanel extends JPanel {
         super.paintComponent(grafics);
 
         //get window dimensions
-        int width = this.getWidth();
-        int height = this.getHeight();
+        
+        int width = frame.getWidth();
+        int height = frame.getHeight();
         int middle = width / 2;
 
         //pattern for the field devider

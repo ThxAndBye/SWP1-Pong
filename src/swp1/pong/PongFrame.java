@@ -6,17 +6,21 @@
 package swp1.pong;
 
 import java.awt.Frame;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author thxandbye
- */
+
+
+
 public class PongFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form NewJFrame
-     */
+    private static int windowWidth, windowHeight;
+    
+   
     public PongFrame() {
+       windowWidth = Integer.valueOf(JOptionPane.showInputDialog( this, "Width", WIDTH));
+       windowHeight = Integer.valueOf(JOptionPane.showInputDialog( this, "Height", HEIGHT));
+        
+        
         initComponents();
         setState(Frame.NORMAL);
     }
@@ -88,6 +92,15 @@ public class PongFrame extends javax.swing.JFrame {
         });
     }
 
+    public int getWindowWidth() {
+        return windowWidth;
+    }
+
+    public int getWindowHeight() {
+        return windowHeight;
+    }
+
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel pongPanel;
     // End of variables declaration//GEN-END:variables
