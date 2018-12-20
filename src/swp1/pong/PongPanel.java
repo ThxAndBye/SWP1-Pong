@@ -46,6 +46,7 @@ class PongPanel extends JPanel {
             bitFont = Font.createFont(Font.TRUETYPE_FONT, stream).deriveFont(60f);
         } catch (FontFormatException | IOException ex) {
             ex.printStackTrace();
+            bitFont = new Font("Cabin", Font.PLAIN, 14);
         }
 
     }
