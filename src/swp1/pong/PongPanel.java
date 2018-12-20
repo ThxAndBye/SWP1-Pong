@@ -64,9 +64,9 @@ class PongPanel extends JPanel {
 
         //draw player paddles
         //player 1
-        g2.drawLine(25, playerOneHeight - paddleSize, 25, playerOneHeight + paddleSize);
+        g2.drawLine(25, playerTwoHeight - paddleSize, 25, playerTwoHeight + paddleSize);
         //player 2
-        g2.drawLine(width - 25, playerTwoHeight - paddleSize, width - 25, playerTwoHeight + paddleSize);
+        g2.drawLine(width - 25, playerOneHeight - paddleSize, width - 25, playerOneHeight + paddleSize);
 
         //draw field devider
         g2.setStroke(dashed);
@@ -83,14 +83,14 @@ class PongPanel extends JPanel {
     public Dimension getPreferredSize() {
         return new Dimension(pongMain.getWindowWidth(), pongMain.getWindowHeight());
     }
-
-    public void setPlayerOneHeight(int playerOneHeight) {
-        this.playerOneHeight = playerOneHeight;
+    
+    public void movePlayerOneHeight(int playerOneHeight) {
+        this.playerOneHeight += playerOneHeight;
 
     }
 
-    public void setPlayerTwoHeight(int playerTwoHeight) {
-        this.playerTwoHeight = playerTwoHeight;
+    public void movePlayerTwoHeight(int playerTwoHeight) {
+        this.playerTwoHeight += playerTwoHeight;
     }
 
 }

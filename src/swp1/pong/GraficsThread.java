@@ -7,39 +7,46 @@ package swp1.pong;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPanel;
 
 /**
  *
  * @author thxandbye
  */
 public class GraficsThread implements Runnable {
-      
+
+    PongPanel pongPanel;
+    PongInputListener pongInputListener;
+    playerStatus playerOne;
+    playerStatus playerTwo;
+
+    public GraficsThread(PongPanel pongPanel, PongInputListener pongInputListener) {
+        this.pongPanel = pongPanel;
+        this.pongInputListener = pongInputListener;
+
+        playerOne = pongInputListener.getPlayerOne();
+        playerTwo = pongInputListener.getPlayerTwo();
+    }
+
     @Override
     public void run() {
-        //PongFrame pongFrame = new PongFrame();
-        PongPanel pongPanel = new PongPanel();
-        
-        for (int i = 0; i < 450; i+=10) {  
-            pongPanel.setPlayerOneHeight(i);
+
+        while (true) {
             
+
+            pongPanel.movePlayerOneHeight(playerOne.getStatus());
+            pongPanel.movePlayerTwoHeight(playerTwo.getStatus());
+
             pongPanel.revalidate();
             pongPanel.repaint();
-           
-           
-           //pongFrame.revalidate();
-           //pongFrame.repaint();
-            
-            
-            System.out.println(i);
-            
-            
+
             try {
-                Thread.sleep(1000);
+                Thread.sleep(16, 67);
             } catch (InterruptedException ex) {
                 Logger.getLogger(GraficsThread.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
     }
-    
+
 }

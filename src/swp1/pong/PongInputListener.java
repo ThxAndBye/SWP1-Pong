@@ -74,16 +74,16 @@ public class PongInputListener extends KeyAdapter {
 
 class playerStatus {
 
-    boolean movingUp = false;
-    boolean movingDown = false;
+    private boolean movingUp = false;
+    private boolean movingDown = false;
 
     public int getStatus() {
         if (movingDown && movingUp) {
             return 0;
         } else if (movingUp) {
-            return 1;
+            return -10;
         } else if (movingDown) {
-            return -1;
+            return 10;
         } else {
             return 0;
         }
