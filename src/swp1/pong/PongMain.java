@@ -17,14 +17,10 @@ public class PongMain {
     
 
     public static void main(String[] args) {
-
-        
         
         PongFrame frame = new PongFrame();
         frame.setVisible(true);
-        
-        Thread graficsThread = new Thread(new GraficsThread());
-	graficsThread.run();
+ 
         frame.setResizable(false);
     }
 
