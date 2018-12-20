@@ -45,8 +45,8 @@ class PongPanel extends JPanel {
             InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream("8bit16.ttf");
             bitFont = Font.createFont(Font.TRUETYPE_FONT, stream).deriveFont(60f);
         } catch (FontFormatException | IOException ex) {
-            ex.printStackTrace();
-            bitFont = new Font("Cabin", Font.PLAIN, 14);
+            System.err.println("Problem reading font! Reverting to a default font.");
+            bitFont = new Font("Cabin", Font.PLAIN, 40);
         }
 
     }
