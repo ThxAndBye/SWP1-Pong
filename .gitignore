@@ -49,6 +49,7 @@ nb-configuration.xml
 
 # Misc
 *.swp
+*.xml
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag

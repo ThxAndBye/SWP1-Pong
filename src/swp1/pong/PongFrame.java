@@ -6,17 +6,20 @@
 package swp1.pong;
 
 import java.awt.Frame;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author thxandbye
- */
+
+
+
 public class PongFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form NewJFrame
-     */
+  
+    
+   
     public PongFrame() {
+       
+        
+        
         initComponents();
         setState(Frame.NORMAL);
     }
@@ -88,6 +91,10 @@ public class PongFrame extends javax.swing.JFrame {
         });
     }
 
+    
+   
+
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel pongPanel;
     // End of variables declaration//GEN-END:variables

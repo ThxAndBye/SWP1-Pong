@@ -9,7 +9,7 @@ package swp1.pong;
  *
  * @author thxandbye
  */
-public class MainThread implements Runnable {
+public class PongBallThread implements Runnable {
 
     @Override
     public void run() {
