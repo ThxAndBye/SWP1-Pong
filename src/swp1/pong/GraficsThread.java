@@ -5,15 +5,41 @@
  */
 package swp1.pong;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author thxandbye
  */
 public class GraficsThread implements Runnable {
-
+      
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //PongFrame pongFrame = new PongFrame();
+        PongPanel pongPanel = new PongPanel();
+        
+        for (int i = 0; i < 450; i+=10) {  
+            pongPanel.setPlayerOneHeight(i);
+            
+            pongPanel.revalidate();
+            pongPanel.repaint();
+           
+           
+           //pongFrame.revalidate();
+           //pongFrame.repaint();
+            
+            
+            System.out.println(i);
+            
+            
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(GraficsThread.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }
     
 }
