@@ -27,9 +27,9 @@ class PongPanel extends JPanel {
     PongMain pongMain = new PongMain();
 
     public PongPanel() {
-        
+
         setBackground(Color.BLACK);
-        playerOneHeight = pongMain.getWindowHeight()/2;
+        playerOneHeight = pongMain.getWindowHeight() / 2;
         playerTwoHeight = playerOneHeight;
     }
 
@@ -38,7 +38,6 @@ class PongPanel extends JPanel {
         super.paintComponent(grafics);
 
         //get window dimensions
-        
         int width = this.getWidth();
         int height = this.getHeight();
         int middle = width / 2;
@@ -74,14 +73,23 @@ class PongPanel extends JPanel {
     public Dimension getPreferredSize() {
         return new Dimension(pongMain.getWindowWidth(), pongMain.getWindowHeight());
     }
-    
+
     public void movePlayerOneHeight(int playerOneHeight) {
-        this.playerOneHeight += playerOneHeight;
+
+        boolean isValidBot = (this.playerOneHeight + playerOneHeight) < (this.getHeight() - (20 + (paddleSize)));
+        boolean isValidTop = (this.playerOneHeight + playerOneHeight) > 20 + paddleSize;
+        if (isValidBot && isValidTop) {
+            this.playerOneHeight += playerOneHeight;
+        }
 
     }
 
     public void movePlayerTwoHeight(int playerTwoHeight) {
-        this.playerTwoHeight += playerTwoHeight;
+        boolean isValidBot = (this.playerTwoHeight + playerTwoHeight) < (this.getHeight() - (20 + (paddleSize)));
+        boolean isValidTop = (this.playerTwoHeight + playerTwoHeight) > 20 + paddleSize;
+        if (isValidBot && isValidTop) {
+            this.playerTwoHeight += playerTwoHeight;
+        }
     }
-    
+
 }
