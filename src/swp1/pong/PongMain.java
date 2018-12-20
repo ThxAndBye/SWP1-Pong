@@ -22,13 +22,9 @@ public class PongMain {
         
         PongFrame frame = new PongFrame();
         frame.setVisible(true);
-<<<<<<< HEAD
-        frame.setLocationRelativeTo(null);
-=======
         
         Thread graficsThread = new Thread(new GraficsThread());
 	graficsThread.run();
->>>>>>> fca54e7a2d2af9fe2b0c68adfa03603df6147a70
         frame.setResizable(false);
     }
 
