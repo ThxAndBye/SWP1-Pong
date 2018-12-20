@@ -20,6 +20,8 @@ import javax.swing.JPanel;
  */
 class PongPanel extends JPanel {
 
+    BallPosition bp;
+
     int playerOneHeight;
     int playerTwoHeight;
 
@@ -35,6 +37,9 @@ class PongPanel extends JPanel {
 
     @Override
     public void paintComponent(Graphics grafics) {
+
+        bp = new BallPosition(pongMain.getWindowWidth() / 2, pongMain.getWindowHeight() / 2);
+
         super.paintComponent(grafics);
 
         //get window dimensions
@@ -66,6 +71,11 @@ class PongPanel extends JPanel {
         //draw field devider
         g2.setStroke(dashed);
         g2.drawLine(middle, 25, middle, height - 25);
+
+        //draw the ball
+        g2.setColor(Color.red);
+        g2.setStroke(new BasicStroke(10));
+        g2.drawRect(bp.getX(), bp.getY(), 5, 5);
 
     }
 
