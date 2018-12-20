@@ -22,6 +22,7 @@ public class PongMain {
         
         PongFrame frame = new PongFrame();
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
         frame.setResizable(false);
     }
 
