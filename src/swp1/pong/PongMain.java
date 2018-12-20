@@ -12,13 +12,16 @@ import javax.swing.JOptionPane;
 public class PongMain {
 
     //private int windowWidth, windowHeight;
-    private final int windowWidth = Integer.valueOf(JOptionPane.showInputDialog("Width", "640"));
-    private final int windowHeight = Integer.valueOf(JOptionPane.showInputDialog("Height", "400"));
-    
+    private static int windowWidth = 0;
+    private static int windowHeight = 0;
 
     public static void main(String[] args) {
-        
+
+        windowWidth = Integer.valueOf(JOptionPane.showInputDialog("Width", "640"));
+        windowHeight = Integer.valueOf(JOptionPane.showInputDialog("Height", "400"));
         PongFrame frame = new PongFrame();
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
         frame.setVisible(true);
  
         frame.setResizable(false);
