@@ -24,7 +24,7 @@ class PongPanel extends JPanel {
     int playerTwoHeight;
 
     int paddleSize = 32;
-    PongFrame frame;
+    PongMain pongMain = new PongMain();
 
     public PongPanel() {
         
@@ -39,8 +39,8 @@ class PongPanel extends JPanel {
 
         //get window dimensions
         
-        int width = frame.getWidth();
-        int height = frame.getHeight();
+        int width = this.getWidth();
+        int height = this.getHeight();
         int middle = width / 2;
 
         //pattern for the field devider
@@ -72,6 +72,6 @@ class PongPanel extends JPanel {
 
     @Override
     public Dimension getPreferredSize() {
-        return new Dimension(768, 480);
+        return new Dimension(pongMain.getWindowWidth(), pongMain.getWindowHeight());
     }
 }

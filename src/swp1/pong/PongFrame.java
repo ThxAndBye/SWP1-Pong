@@ -13,12 +13,11 @@ import javax.swing.JOptionPane;
 
 public class PongFrame extends javax.swing.JFrame {
 
-    private static int windowWidth, windowHeight;
+  
     
    
     public PongFrame() {
-       windowWidth = Integer.valueOf(JOptionPane.showInputDialog( this, "Width", WIDTH));
-       windowHeight = Integer.valueOf(JOptionPane.showInputDialog( this, "Height", HEIGHT));
+       
         
         
         initComponents();
@@ -92,13 +91,8 @@ public class PongFrame extends javax.swing.JFrame {
         });
     }
 
-    public int getWindowWidth() {
-        return windowWidth;
-    }
-
-    public int getWindowHeight() {
-        return windowHeight;
-    }
+    
+   
 
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
