@@ -74,4 +74,14 @@ class PongPanel extends JPanel {
     public Dimension getPreferredSize() {
         return new Dimension(pongMain.getWindowWidth(), pongMain.getWindowHeight());
     }
+    
+    public void setPlayerOneHeight(int playerOneHeight) {
+        this.playerOneHeight = playerOneHeight;
+
+    }
+
+    public void setPlayerTwoHeight(int playerTwoHeight) {
+        this.playerTwoHeight = playerTwoHeight;
+    }
+    
 }
