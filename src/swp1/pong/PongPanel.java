@@ -24,8 +24,10 @@ class PongPanel extends JPanel {
     int playerTwoHeight;
 
     int paddleSize = 32;
+    PongMain pongMain = new PongMain();
 
     public PongPanel() {
+        
         setBackground(Color.BLACK);
         playerOneHeight = 100;
         playerTwoHeight = playerOneHeight;
@@ -36,6 +38,7 @@ class PongPanel extends JPanel {
         super.paintComponent(grafics);
 
         //get window dimensions
+        
         int width = this.getWidth();
         int height = this.getHeight();
         int middle = width / 2;
@@ -69,6 +72,6 @@ class PongPanel extends JPanel {
 
     @Override
     public Dimension getPreferredSize() {
-        return new Dimension(768, 480);
+        return new Dimension(pongMain.getWindowWidth(), pongMain.getWindowHeight());
     }
 }
