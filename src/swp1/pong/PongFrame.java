@@ -14,9 +14,12 @@ public class PongFrame extends javax.swing.JFrame {
         setState(Frame.NORMAL);
         PongInputListener input = new PongInputListener();
         Thread graficsThread = new Thread(new GraficsThread((PongPanel) pongPanel, input));
+        Thread pongBallThread = new Thread(new PongBallThread((PongPanel) pongPanel));
         addKeyListener(input);
 
         graficsThread.start();
+        pongBallThread.start();
+             
     }
 
     private void initComponents() {

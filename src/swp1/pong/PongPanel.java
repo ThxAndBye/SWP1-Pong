@@ -40,7 +40,7 @@ class PongPanel extends JPanel {
         setBackground(Color.BLACK);
         playerOneHeight = pongMain.getWindowHeight() / 2;
         playerTwoHeight = playerOneHeight;
-
+        bp = new BallPosition(pongMain.getWindowWidth() / 2, pongMain.getWindowHeight() / 2);
         try {
             InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream("8bit16.ttf");
             bitFont = Font.createFont(Font.TRUETYPE_FONT, stream).deriveFont(60f);
@@ -54,7 +54,7 @@ class PongPanel extends JPanel {
     @Override
     public void paintComponent(Graphics grafics) {
 
-        bp = new BallPosition(pongMain.getWindowWidth() / 2, pongMain.getWindowHeight() / 2);
+        
 
         super.paintComponent(grafics);
 
@@ -81,6 +81,7 @@ class PongPanel extends JPanel {
         //draw player paddles
         //player 1
         g2.drawLine(25, playerTwoHeight - paddleSize, 25, playerTwoHeight + paddleSize);
+        
         //player 2
         g2.drawLine(width - 25, playerOneHeight - paddleSize, width - 25, playerOneHeight + paddleSize);
 
