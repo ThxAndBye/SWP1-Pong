@@ -28,6 +28,8 @@ class PongPanel extends JPanel {
 
     int playerOneHeight;
     int playerTwoHeight;
+    int currentPlayerOneHeight;
+    int currentPlayerTwoHeight;
     int scorePlayerOne = 0;
     int scorePlayerTwo = 0;
     Font bitFont;
@@ -117,7 +119,7 @@ class PongPanel extends JPanel {
         boolean isValidBot = (this.playerOneHeight + playerOneHeight) < (this.getHeight() - (20 + (paddleSize)));
         boolean isValidTop = (this.playerOneHeight + playerOneHeight) > 20 + paddleSize;
         if (isValidBot && isValidTop) {
-            this.playerOneHeight += playerOneHeight;
+            currentPlayerOneHeight = this.playerOneHeight += playerOneHeight;
         }
 
     }
@@ -126,7 +128,7 @@ class PongPanel extends JPanel {
         boolean isValidBot = (this.playerTwoHeight + playerTwoHeight) < (this.getHeight() - (20 + (paddleSize)));
         boolean isValidTop = (this.playerTwoHeight + playerTwoHeight) > 20 + paddleSize;
         if (isValidBot && isValidTop) {
-            this.playerTwoHeight += playerTwoHeight;
+            currentPlayerTwoHeight = this.playerTwoHeight += playerTwoHeight;
         }
     }
 
