@@ -40,7 +40,7 @@ public class PongBallThread implements Runnable {
             pongPanel.repaint();
             
             try {
-                Thread.sleep(50, 67);
+                Thread.sleep(16, 67);
             } catch (InterruptedException ex) {
                 Logger.getLogger(PongBallThread.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -50,7 +50,7 @@ public class PongBallThread implements Runnable {
     }
     
     private void moveBall() {
-        paddleSize = pongPanel.paddleSize;
+        paddleSize = pongPanel.paddleSize +5;
         //does the ball hit the border?
         if (bp.getY() <= 20 || bp.getY() >= height - 20) {
             
