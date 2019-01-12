@@ -132,12 +132,12 @@ class PongPanel extends JPanel {
         }
     }
 
-    public void setScorePlayerOne(int scorePlayerOne) {
-        this.scorePlayerOne = scorePlayerOne;
+    public void setScorePlayerOne() {
+        scorePlayerOne+=1;
     }
 
-    public void setScorePlayerTwo(int scorePlayerTwo) {
-        this.scorePlayerTwo = scorePlayerTwo;
+    public void setScorePlayerTwo() {
+        scorePlayerTwo+=1;
     }
     
     

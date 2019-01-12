@@ -101,7 +101,10 @@ public class PongBallThread implements Runnable {
                     currentBallDirX = "-";
                 } //set ball postion back to the middle
                 else {
-                    System.exit(0);
+                    pongPanel.setScorePlayerOne();
+                    bp.setX(width/2);
+                    bp.setY(height/2);
+                    currentBallDirX="-";
                 }
             } else if (currentBallDirX.equals("-")) {
                 //ball hits the paddle (playerOne || right)
@@ -109,7 +112,10 @@ public class PongBallThread implements Runnable {
                     bp.setX(bp.getX() + pongPanel.getWidth() / 100);
                     currentBallDirX = "+";
                 } else {
-                    System.exit(0);
+                    pongPanel.setScorePlayerTwo();
+                    bp.setX(width/2);
+                    bp.setY(height/2);
+                    currentBallDirX="+";
                 }
             }
         } else {
