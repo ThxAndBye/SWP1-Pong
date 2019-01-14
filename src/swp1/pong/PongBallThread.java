@@ -14,6 +14,8 @@ import java.util.logging.Logger;
  */
 public class PongBallThread implements Runnable {
 
+    int directionCountY = 0;
+    int directionCountX = 0;
     int ballSpeed = 25;
     PongPanel pongPanel;
     BallPosition bp;
@@ -48,7 +50,30 @@ public class PongBallThread implements Runnable {
         }
 
     }
-
+    private void increaseYCount()
+    {
+        directionCountY++;
+        currentBallDirection();
+    }
+    
+    private void currentBallDirection()
+    {
+        currentBallDirX = directionCountX %2==0? "+":"-";
+        currentBallDirY = directionCountY %2==0? "+":"-";
+    }
+    
+    private void resetBall()
+    {
+        
+    }
+     
+    
+    private void increaseXCount()
+    {
+        directionCountX++;
+        currentBallDirection();
+    }
+    
     private void increaseSpeed() {
         if (ballSpeed >= 3) {
             ballSpeed -= 2;
@@ -62,10 +87,10 @@ public class PongBallThread implements Runnable {
 
             if (currentBallDirY.equals("+")) {
                 bp.setY(bp.getY() - pongPanel.getHeight() / 100);
-                currentBallDirY = "-";
+                increaseYCount();
             } else if (currentBallDirY.equals("-")) {
                 bp.setY(bp.getY() + pongPanel.getHeight() / 100);
-                currentBallDirY = "+";
+                increaseYCount();
             }
 
         } else if (bp.getX() <= 32 || bp.getX() >= width - 32) {
@@ -73,21 +98,23 @@ public class PongBallThread implements Runnable {
                 //ball hits the paddle (playerOne || right)
                 if (bp.getY() > pongPanel.currentPlayerOneHeight - paddleSize && bp.getY() < pongPanel.currentPlayerOneHeight + paddleSize) {
                     bp.setX(bp.getX() - pongPanel.getWidth() / 100);
-                    currentBallDirX = "-";
+                    increaseXCount();
                     increaseSpeed();
                 } //set ball postion back to the middle
                 else {
                     pongPanel.setScorePlayerOne();
                     bp.setX(width / 2);
                     bp.setY(height / 2);
-                    currentBallDirX = "-";
+                    
                     ballSpeed = 25;
+                    increaseXCount();
                 }
             } else if (currentBallDirX.equals("-")) {
-                //ball hits the paddle (playerOne || right)
+                //ball hits the paddle (playerTwo || left)
                 if (bp.getY() > pongPanel.currentPlayerTwoHeight - paddleSize && bp.getY() < pongPanel.currentPlayerTwoHeight + paddleSize) {
                     bp.setX(bp.getX() + pongPanel.getWidth() / 100);
-                    currentBallDirX = "+";
+                    increaseXCount();
+                    
                     increaseSpeed();
                 } //set ball back to the middle
                 else {
@@ -96,6 +123,7 @@ public class PongBallThread implements Runnable {
                     bp.setY(height / 2);
                     currentBallDirX = "+";
                     ballSpeed = 25;
+                    increaseXCount();
                 }
             }
         } else {
